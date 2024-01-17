@@ -8,6 +8,6 @@ export default <NitroPreset>{
   // minify: true,
   serveStatic: true,
   commands: {
-    preview: 'bun ./server/index.mjs',
-  },
+    preview: 'bun ./server/index.mjs'
+  }
 }

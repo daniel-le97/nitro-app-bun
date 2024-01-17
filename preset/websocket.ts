@@ -67,19 +67,18 @@ const handlers = new Map<string, (server: BunServer, ws: WS, payload: Payload) =
   })
 
 export const websocket: WebSocketHandler<{ socketId: string, auth: { id?: string, name?: string, image?: string }, channels: string[] }> = {
-  open(ws) {
+  open (ws) {
     console.log('server:ws:open', ws.data)
 
     // i should probably do something here
   },
-  async message(ws, message) {
-    console.log('server:ws:message', ws.data, message);
-    
+  async message (ws, message) {
+    console.log('server:ws:message', ws.data, message)
   },
-  drain(ws) {
+  drain (ws) {
     console.log('server:ws:drain', ws.data)
   },
-  close(ws) {
+  close (ws) {
     console.log('server:ws:close', ws.data)
-  },
+  }
 }

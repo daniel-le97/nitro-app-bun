@@ -1,11 +1,11 @@
-import { eventHandler } from "h3";
+import { eventHandler } from 'h3'
 
 // https://github.com/swagger-api/swagger-ui
 
 // Served as /_nitro/swagger
-export default eventHandler((event) => {
-  const title = "Nitro Swagger UI";
-  const CDN_BASE = "https://cdn.jsdelivr.net/npm/swagger-ui-dist@^4";
+export default eventHandler((_event) => {
+  const title = 'Nitro Swagger UI'
+  const CDN_BASE = 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@^4'
   return html`<!doctype html>
     <html lang="en">
       <head>
@@ -36,9 +36,9 @@ export default eventHandler((event) => {
           };
         </script>
       </body>
-    </html> `;
-});
+    </html> `
+})
 
-function html(str, ...args) {
-  return String.raw(str, ...args);
+function html (str, ...args) {
+  return String.raw(str, ...args)
 }

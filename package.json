@@ -4,10 +4,17 @@
     "prepare": "nitropack prepare",
     "dev": "bun --bun nitropack dev",
     "build": "bun --bun nitropack build",
-    "preview": "bun .output/server/index.mjs"
+    "preview": "bun .output/server/index.mjs",
+    "lint": "bun --bun eslint .",
+    "lint:fix": "bun --bun eslint --fix .",
+    "upgrade": "bun upgrade --canary && bun --version && bunx taze major -w && bun i"
   },
   "dependencies": {
     "@types/bun": "^1.0.2",
     "nitropack": "npm:nitropack-nightly@latest"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0"
   }
 }

@@ -1,4 +1,4 @@
-# Nitro Minimal Starter
+# Nitro with a preset to use bun's built in server in dev and prod
 
 Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
 
@@ -7,14 +7,9 @@ Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
 
-# yarn
-yarn install
+bun install
 
-# pnpm
-pnpm install
 ```
 
 ## Development Server
@@ -22,7 +17,7 @@ pnpm install
 Start the development server on <http://localhost:3000>
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 ## Production
@@ -30,13 +25,13 @@ npm run dev
 Build the application for production:
 
 ```bash
-npm run build
+bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+bun run preview
 ```
 
 Check out the [deployment documentation](https://nitro.unjs.io/deploy) for more information.

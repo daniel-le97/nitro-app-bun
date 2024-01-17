@@ -22,12 +22,12 @@ nitroApp.router.get(
         Object.entries(tasks).map(([name, task]) => [
           name,
           // @ts-expect-error type import errors
-          { description: task.description },
-        ]),
-      ),
+          { description: task.description }
+        ])
+      )
     }
-  },
-  ),
+  }
+  )
 )
 nitroApp.router.use(
   '/_nitro/tasks/:name',
@@ -36,24 +36,23 @@ nitroApp.router.use(
     const name = getRouterParam(event, 'name')
     const payload = {
       ...getQuery(event),
-      ...(await readBody(event).catch(() => ({}))),
+      ...(await readBody(event).catch(() => ({})))
     }
     return await runNitroTask(name, payload)
-  },
-  ),
+  }
+  )
 )
 
 const server = Bun.serve({
   port: process.env.NITRO_PORT || process.env.PORT || 3000,
-  async fetch(request, server) {
+  async fetch (request, server) {
     try {
       return await handler(request, { server, request })
-    }
-    catch (error) {
+    } catch (error) {
       console.error(request.url, error)
     }
   },
-  websocket,
+  websocket
 })
 setServer(server)
 

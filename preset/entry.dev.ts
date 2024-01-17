@@ -27,12 +27,12 @@ nitroApp.router.get(
         Object.entries(tasks).map(([name, task]) => [
           name,
           // @ts-expect-error type import errors
-          { description: task.description },
-        ]),
-      ),
+          { description: task.description }
+        ])
+      )
     }
-  },
-  ),
+  }
+  )
 )
 nitroApp.router.use(
   '/_nitro/tasks/:name',
@@ -41,11 +41,11 @@ nitroApp.router.use(
     const name = getRouterParam(event, 'name')
     const payload = {
       ...getQuery(event),
-      ...(await readBody(event).catch(() => ({}))),
+      ...(await readBody(event).catch(() => ({})))
     }
     return await runNitroTask(name, payload)
-  },
-  ),
+  }
+  )
 )
 
 // const routes = nitroApp.h3App.stack
@@ -53,15 +53,14 @@ nitroApp.router.use(
 const server = Bun.serve({
   port: 0,
   reusePort: true,
-  async fetch(request, server) {
+  async fetch (request, server) {
     try {
       return await handler(request, { server, request })
-    }
-    catch (error) {
+    } catch (error) {
       console.error(request.url, error)
     }
   },
-  websocket,
+  websocket
 })
 
 // @ts-expect-error event is typed differently
@@ -74,7 +73,7 @@ setServer(server)
 
 parentPort?.postMessage({
   event: 'listen',
-  address: { host: 'localhost', port: server.port },
+  address: { host: 'localhost', port: server.port }
 })
 
 // console.log(Bun.main, Bun.isMainThread, Bun.origin, Bun.argv);
@@ -83,7 +82,7 @@ parentPort?.postMessage({
 trapUnhandledNodeErrors()
 
 // Graceful shutdown
-async function onShutdown(signal?: string) {
+async function onShutdown (signal?: string) {
   // console.log('onShutdown')
   server.stop(true)
   await nitroApp.hooks.callHook('close')
@@ -93,8 +92,7 @@ async function onShutdown(signal?: string) {
 }
 
 parentPort?.on('message', async (msg) => {
-  if (msg && msg.event === 'shutdown')
-    await onShutdown()
+  if (msg && msg.event === 'shutdown') { await onShutdown() }
 })
 
-console.log('finished');
+console.log('finished')
