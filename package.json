@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "prepare": "nitropack prepare",
+    "dev": "bun --bun nitropack dev",
+    "build": "bun --bun nitropack build",
+    "preview": "bun .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@types/bun": "^1.0.2",
+    "nitropack": "npm:nitropack-nightly@latest"
+  }
+}
