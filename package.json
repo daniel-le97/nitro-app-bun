@@ -3,7 +3,7 @@
   "scripts": {
     "prepare": "nitropack prepare",
     "dev": "bun --bun nitropack dev",
-    "build": "bun --bun nitropack build",
+    "build": "bun nitropack build",
     "preview": "bun .output/server/index.mjs",
     "start": "bun .output/server/index.mjs",
     "lint": "bun --bun eslint .",
