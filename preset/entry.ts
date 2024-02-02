@@ -59,3 +59,5 @@ setServer(server)
 // serverHooks.callHook('start', server)
 
 console.log(`Listening on http://localhost:${server.port}...`)
+console.log('test');
+
