@@ -1,0 +1,5 @@
+buildImage = 'ghcr.io/railwayapp/nixpacks:latest'
+[start]
+  cmd = 'bun ./.output/server/index.mjs'
+  runImage = 'ghcr.io/railwayapp/nixpacks:latest'
+  onlyIncludeFiles = ['./.output']
