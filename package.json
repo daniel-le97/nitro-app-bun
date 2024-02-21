@@ -3,7 +3,7 @@
   "scripts": {
     "prepare": "nitropack prepare",
     "dev": "bun --bun nitropack dev",
-    "build": "bun nitropack build",
+    "build": "bun nitro build",
     "preview": "bun .output/server/index.mjs",
     "start": "bun .output/server/index.mjs",
     "lint": "bun --bun eslint .",
@@ -13,7 +13,7 @@
   "dependencies": {
     "@types/bun": "^1.0.2",
     "nanotar": "^0.1.1",
-    "nitropack": "npm:nitropack-nightly@latest",
+    "nitropack": "latest",
     "xterm": "^5.3.0"
   },
   "devDependencies": {
